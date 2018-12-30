@@ -19,3 +19,8 @@ files_list = listdir(dir_base)
 #create dictionary to store acronym and it's respective document
 dictionary_acronyms = {}
 acronym_doc_num = {}
+
+#this function will read all the files in the directory and store data in a list one by one by file.
+for num, val in enumerate(files_list):
+    input_text = open(dir_base + val, encoding = "utf-8").read()
+print(input_text)
