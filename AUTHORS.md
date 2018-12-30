@@ -1,4 +1,4 @@
-** AUTHORS**
+**AUTHORS**
 
 Shivam Thassu (shivamt99@gwu.edu)
 
