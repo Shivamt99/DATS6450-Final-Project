@@ -20,7 +20,11 @@ files_list = listdir(dir_base)
 dictionary_acronyms = {}
 acronym_doc_num = {}
 
-#this function will read all the files in the directory and store data in a list one by one by file.
+#this function will read all the files in the directory
 for num, val in enumerate(files_list):
     input_text = open(dir_base + val, encoding = "utf-8").read()
-print(input_text)
+    
+    #regex pattern to find the acronyms in the documents
+    acronym = re.findall(r'\([A-Z][A-Z][A-Z]+\)', input_text)
+    print(acronym)
+    
