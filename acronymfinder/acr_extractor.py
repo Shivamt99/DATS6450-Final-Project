@@ -13,7 +13,7 @@ sentence_tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
 treebank_tokenizer = TreebankWordTokenizer()
 
 #load the filenames in a list
-dir_base = "../data"
+dir_base = "../data/"
 files_list = listdir(dir_base)
 
 #create dictionary to store acronym and it's respective document
@@ -26,5 +26,10 @@ for num, val in enumerate(files_list):
     
     #regex pattern to find the acronyms in the documents
     acronym = re.findall(r'\([A-Z][A-Z][A-Z]+\)', input_text)
-    print(acronym)
-    
+    acronym_list = []
+    for a in acronym:
+        sample = list(a)
+        sample.remove('(')
+        sample.remove(')')
+        acronym_list.append("".join(sample))
+    print(acronym_list)
