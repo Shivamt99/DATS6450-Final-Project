@@ -25,7 +25,6 @@ for num, val in enumerate(files_list):
     input_text = open(dir_base + val, encoding = "utf-8").read()
     
     #regex pattern to find the acronyms in the documents
-<<<<<<< HEAD
     acronym = re.findall(r'\([A-Z][A-Za-z\.][A-Z]+\)', input_text)
     acronym_list = []
     for a in acronym:
@@ -34,4 +33,4 @@ for num, val in enumerate(files_list):
         sample.remove(')')
         acronym_list.append("".join(sample))
     print(acronym_list)
->>>>>>> 35a0425973021fd57323c23918638d2a412c39ce
+
