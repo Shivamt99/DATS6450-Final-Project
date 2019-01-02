@@ -34,3 +34,17 @@ for num, val in enumerate(files_list):
         sample.remove('(')
         sample.remove(')')
         acronym_list.append("".join(sample))
+        
+    #this function will read the text data and tokenize it first by sentence then by word in that sentence.        
+        
+    sentence_tokens = sentence_tokenizer.tokenize(input_text)
+    sentences = [treebank_tokenizer.tokenize(sentence) for sentence in sentence_tokens]
+    for sentence in sentences:
+        sentence1 = [words for words in sentence if words not in stopWords]
+        for words in sentence1:
+            for acr in acronym_list:
+                if acr in sentence1:
+                    acronym_sent = acr
+                    if (acronym_sent not in list(dictionary_acronyms.keys())):
+                        dictionary_acronyms[acronym_sent] = get_acronym(acronym_sent, sentence1)
+                        acronym_doc_num[acronym_sent] = num+1 
