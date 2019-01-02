@@ -8,9 +8,11 @@ from os import listdir
 from os.path import isfile, join
 from nltk.util import bigrams 
 from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
 from nltk.tokenize import TreebankWordTokenizer
 sentence_tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
 treebank_tokenizer = TreebankWordTokenizer()
+stopWords = set(stopwords.words('english'))
 
 #load the filenames in a list
 dir_base = "../data/"
@@ -32,5 +34,3 @@ for num, val in enumerate(files_list):
         sample.remove('(')
         sample.remove(')')
         acronym_list.append("".join(sample))
-    print(acronym_list)
-
