@@ -37,8 +37,7 @@ for num, val in enumerate(files_list):
         sample.remove(')')
         acronym_list.append("".join(sample))
         
-    #this function will read the text data and tokenize it first by sentence then by word in that sentence.        
-        
+    #this function will read the text data and tokenize it first by sentence then by word in that sentence.               
     sentence_tokens = sentence_tokenizer.tokenize(input_text)
     sentences = [treebank_tokenizer.tokenize(sentence) for sentence in sentence_tokens]
     for sentence in sentences:
@@ -50,3 +49,11 @@ for num, val in enumerate(files_list):
                     if (acronym_sent not in list(dictionary_acronyms.keys())):
                         dictionary_acronyms[acronym_sent] = get_acronym.strip_acronym(acronym_sent, sentence1)
                         acronym_doc_num[acronym_sent] = num+1 
+                        
+# Define and Map the dictionary
+final_dict = {"Acronym" : [], "Full-form" : [], "Document-number" : []}
+acr_list = [key for key, value in dictionary_acronyms.items()]
+for acronym in acr_list:
+    final_dict["Acronym"].append(acronym)
+    final_dict["Full-form"].append(dictionary_acronyms[acronym])
+    final_dict["Document-number"].append(acronym_doc_num[acronym])
