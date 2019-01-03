@@ -10,9 +10,11 @@ from nltk.util import bigrams
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.tokenize import TreebankWordTokenizer
+import get_acronym
 sentence_tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
 treebank_tokenizer = TreebankWordTokenizer()
 stopWords = set(stopwords.words('english'))
+
 
 #load the filenames in a list
 dir_base = "../data/"
@@ -46,5 +48,5 @@ for num, val in enumerate(files_list):
                 if acr in sentence1:
                     acronym_sent = acr
                     if (acronym_sent not in list(dictionary_acronyms.keys())):
-                        dictionary_acronyms[acronym_sent] = get_acronym(acronym_sent, sentence1)
+                        dictionary_acronyms[acronym_sent] = get_acronym.strip_acronym(acronym_sent, sentence1)
                         acronym_doc_num[acronym_sent] = num+1 
