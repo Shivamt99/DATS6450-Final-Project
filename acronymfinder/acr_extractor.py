@@ -14,6 +14,8 @@ import get_acronym
 sentence_tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
 treebank_tokenizer = TreebankWordTokenizer()
 stopWords = set(stopwords.words('english'))
+stopWords.remove("of")
+stopWords.remove("to")
 
 
 #load the filenames in a list
