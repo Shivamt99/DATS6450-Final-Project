@@ -11,7 +11,7 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.tokenize import TreebankWordTokenizer
 import pandas as pd
-import get_acronym
+from acronymfinder import get_acronym
 sentence_tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
 treebank_tokenizer = TreebankWordTokenizer()
 stopWords = set(stopwords.words('english'))
@@ -19,7 +19,7 @@ stopWords.remove("of")
 stopWords.remove("to")
 
 
-class AcronymFinder():
+class AcronymFinder:
     def __init__(self, path):
         self.path = path
         
@@ -62,5 +62,3 @@ class AcronymFinder():
         df = pd.DataFrame(final_dict)
         df.to_csv('Final_dictionary.csv')
 
-if __name__ == "__main__":
-    AcronymFinder()
