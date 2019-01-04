@@ -10,6 +10,7 @@ from nltk.util import bigrams
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.tokenize import TreebankWordTokenizer
+import pandas as pd
 import get_acronym
 sentence_tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
 treebank_tokenizer = TreebankWordTokenizer()
@@ -50,7 +51,7 @@ class AcronymFinder:
                         if acr in sentence1:
                             acronym_sent = acr
                             if (acronym_sent not in list(dictionary_acronyms.keys())):
-                                dictionary_acronyms[acronym_sent] = get_acronym(acronym_sent, sentence1)
+                                dictionary_acronyms[acronym_sent] = get_acronym.strip_acronym(acronym_sent, sentence1)
                                 acronym_doc_num[acronym_sent] = num+1
         final_dict = {"Acronym" : [], "Full-form" : [], "Document-number" : []}
         acr_list = [key for key, value in dictionary_acronyms.items()]
@@ -59,7 +60,7 @@ class AcronymFinder:
             final_dict["Full-form"].append(dictionary_acronyms[acronym])
             final_dict["Document-number"].append(acronym_doc_num[acronym])
         df = pd.DataFrame(final_dict)
-        print(df)
+        df.to_csv('Final_dictionary.csv')
 
 test_1 = AcronymFinder("../data/")
 test_1.find_print_acronym()
