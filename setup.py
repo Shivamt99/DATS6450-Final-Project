@@ -1,7 +1,7 @@
 from distutils.core import setup
 
 setup(
-    name='AcronymFinder',
+    name='acronymfinder',
     version='1.0',
     packages=['acronymfinder'],
     license='MIT License',
