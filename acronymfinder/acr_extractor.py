@@ -19,7 +19,7 @@ stopWords.remove("of")
 stopWords.remove("to")
 
 
-class AcronymFinder:
+class AcronymFinder():
     def __init__(self, path):
         self.path = path
         
@@ -62,3 +62,5 @@ class AcronymFinder:
         df = pd.DataFrame(final_dict)
         df.to_csv('Final_dictionary.csv')
 
+if __name__ == "__main__":
+    AcronymFinder()
