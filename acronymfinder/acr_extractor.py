@@ -62,5 +62,3 @@ class AcronymFinder:
         df = pd.DataFrame(final_dict)
         df.to_csv('Final_dictionary.csv')
 
-test_1 = AcronymFinder("../data/")
-test_1.find_print_acronym()
