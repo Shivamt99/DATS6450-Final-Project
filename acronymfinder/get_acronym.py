@@ -19,3 +19,4 @@ def strip_acronym(acronym, sentence):
                     break
             if acronym_found:
                 return (acr.strip())
+
