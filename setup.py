@@ -6,5 +6,5 @@ setup(
     packages=['acronymfinder'],
     license='MIT License',
     url = "https://github.com/darshan22/DATS6450-Final-Project",
-    description = open('README.txt').read(),
+    description = open('README.md').read(),
 )
