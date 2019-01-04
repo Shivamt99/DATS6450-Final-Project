@@ -27,7 +27,7 @@ class AcronymFinder:
         dictionary_acronyms = {}
         acronym_doc_num = {}
         for num, val in enumerate(files_list):
-            input_text = open(dir_base + val, encoding = "utf-8").read()
+            input_text = open(self.path + val, encoding = "utf-8").read()
     
    
 
