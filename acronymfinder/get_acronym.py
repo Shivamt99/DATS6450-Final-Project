@@ -20,3 +20,6 @@ def strip_acronym(acronym, sentence):
             if acronym_found:
                 return (acr.strip())
 
+if __name__ == "__main__":
+	strip_acronym()
+
