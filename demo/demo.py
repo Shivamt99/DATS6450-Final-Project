@@ -3,7 +3,7 @@
    their full-form and the document number of each acronym
    will be saved in the present working directory"""
 
-from .acronymfinder import acr_extractor
+from acronymfinder.acr_extractor import AcronymFinder
 
 test = AcronymFinder("../data/")
 test.find_print_acronym()
