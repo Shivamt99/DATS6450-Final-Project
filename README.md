@@ -33,6 +33,22 @@ This repository can be found at the address below. You can clone or download thi
 ```
 
 https://github.com/darshan22/DATS6450-Final-Project.git
+
+After you clone/download the repository, to install the package run the following command from the terminal:
+
+```
+python setup.py install
+```
+
+**Required packages**
+
+Install the required packages by executing the following commands:
+
+```
+pip install nltk
+pip install pandas
+pip install numpy
+pip install re
 ```
 
 
