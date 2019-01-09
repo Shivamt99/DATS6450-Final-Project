@@ -21,20 +21,29 @@ stopWords.remove("to")
 
 class AcronymFinder:
     def __init__(self, path):
+	"""
+	Takes path of the directory containing the text files 
+	from the user.
+	"""
         self.path = path
         
     def find_print_acronym(self):
+	"""
+	This function will find the acronym in the document and strip its full-form.
+	It will store the document number, acronym and its full-form and return a csv.
+	"""
         files_list = listdir(self.path)
         dictionary_acronyms = {}
         acronym_doc_num = {}
         
-        # Read all the files in the directory and store data in a list one by one by file.
+        # Read all the files in the directory one by one.
         for num, val in enumerate(files_list):
             input_text = open(self.path + val, encoding = "utf-8").read()
     
-        # Regex Pattern
+        #Define regex pattern to find the acronyms.
             acronym = re.findall(r'\([A-Z][A-Za-z\.][A-Z]+\)', input_text)
             acronym_list = []
+	    #remove the paranthesis from the found acronym
             for a in acronym:
                 sample = list(a)
                 sample.remove('(')
@@ -51,10 +60,11 @@ class AcronymFinder:
                         if acr in sentence1:
                             acronym_sent = acr
                             if (acronym_sent not in list(dictionary_acronyms.keys())):
+				#strip the acronym from the sentence and store it in a dictionary.
                                 dictionary_acronyms[acronym_sent] = get_acronym.strip_acronym(acronym_sent, sentence1)
                                 acronym_doc_num[acronym_sent] = num+1
                                 
-        # Define and Map the dictionary                        
+        #Save the acronyms in a dictionary along with the full-form and the document number.                       
         final_dict = {"Acronym" : [], "Full-form" : [], "Document-number" : []}
         acr_list = [key for key, value in dictionary_acronyms.items()]
         for acronym in acr_list:
